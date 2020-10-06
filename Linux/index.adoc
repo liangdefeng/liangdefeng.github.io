@@ -1,0 +1,4 @@
+//
+// file: index.adoc
+//
+Linux related articles.
