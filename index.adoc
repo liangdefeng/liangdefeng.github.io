@@ -1,10 +1,20 @@
 //
 // file: index.adoc
 //
-= Peter Liang's Blog
+= liangdefeng.github.io
+
+Peter Liang, Hong Kong, <defeng.liang.cn@gmail.com>
+
 
 === Site Link
+
 * link:Linux[Linux]
 * link:Java[Java]
 * link:Erlang&Ejabberd[Erlang & Ejabberd]
 * link:CubaPlatform[Cuba Platform]
+
+
+==== Books
+* book 1
+* book 2
+* book 3
