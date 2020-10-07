@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<title>Untitled</title>
+<title>Linux Commands and Usage Examples</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,15 +438,149 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#truelinux-commands-and-usage-examples">1. Linux Commands and Usage Examples</a>
+<ul class="sectlevel2">
+<li><a href="#trueobtain-the-files-between-two-git-commits">1.1. Obtain the files between two git commits.</a></li>
+<li><a href="#trueimport-ssl-certification-to-a-jdk">1.2. Import SSL certification to a JDK.</a></li>
+<li><a href="#trueusage-of-find-command-in-linux">1.3. Usage of find command in Linux</a></li>
+<li><a href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder">1.4. To find if a certain keyword is found in all the files within a folder.</a></li>
+<li><a href="#trueunzip-a-tar-gz-file">1.5. Unzip a .tar.gz file.</a></li>
+<li><a href="#trueusage-of-rsync-command">1.6. Usage of rsync command.</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="truelinux-commands-and-usage-examples"><a class="anchor" href="#truelinux-commands-and-usage-examples"></a>1. Linux Commands and Usage Examples</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueobtain-the-files-between-two-git-commits"><a class="anchor" href="#trueobtain-the-files-between-two-git-commits"></a>1.1. Obtain the files between two git commits.</h3>
+<div class="listingblock">
+<div class="content">
+<pre>git checkout &lt;OLD_COMMIT&gt;
+git diff --name-only &lt;OLD_COMMIT&gt; &lt;NEW_COMMIT&gt; | xargs git checkout-index -f --prefix='C:/changes/'</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueimport-ssl-certification-to-a-jdk"><a class="anchor" href="#trueimport-ssl-certification-to-a-jdk"></a>1.2. Import SSL certification to a JDK.</h3>
 <div class="paragraph">
-<p>Linux related articles.</p>
+<p>Create a sh file as follows, replacing the KEYSTORE_FILE in the script.</p>
+</div>
+<div class="paragraph">
+<p>import_ssl_cert.sh</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>#!/usr/bin/env sh
+
+KEYSTORE_FILE=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64/jre/lib/security/cacerts
+KEYSTORE_PASS=changeit
+
+import_cert() {
+  local HOST=$1
+  local PORT=$2
+
+  # get the SSL certificate
+  openssl s_client -connect ${HOST}:{PORT} &lt;/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' &gt; ${HOST}.cert
+
+  # delete the old alias and then import the new one
+  keytool -delete -keystore ${KEYSTORE_FILE} -storepass ${KEYSTORE_PASS} -alias ${HOST} &amp;&gt; /dev/null
+
+  # create a keystore and import certificate
+  keytool -import -noprompt -trustcacerts \
+      -alias ${HOST} -file ${HOST}.cert \
+      -keystore ${KEYSTORE_FILE} -storepass ${KEYSTORE_PASS}
+
+  rm ${HOST}.cert
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>./import_ssl_cert.sh www.google.com 443</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueusage-of-find-command-in-linux"><a class="anchor" href="#trueusage-of-find-command-in-linux"></a>1.3. Usage of find command in Linux</h3>
+<div class="sect3">
+<h4 id="truefind-out-all-the-files-changed-in-the-past-30-days"><a class="anchor" href="#truefind-out-all-the-files-changed-in-the-past-30-days"></a>1.3.1. Find out all the files changed in the past 30 days.</h4>
+<div class="listingblock">
+<div class="content">
+<pre>find -type f /directory_path -mtime -30 -ls</pre>
+</div>
+</div>
+<div class="sect4">
+<h5 id="truefind-out-all-the-files-changed-in-the-past-24-hours"><a class="anchor" href="#truefind-out-all-the-files-changed-in-the-past-24-hours"></a>Find out all the files changed in the past 24 hours.</h5>
+<div class="listingblock">
+<div class="content">
+<pre>find -type f /&lt;directory&gt; -newermt "-24 hours" -ls</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"><a class="anchor" href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"></a>1.4. To find if a certain keyword is found in all the files within a folder.</h3>
+<div class="listingblock">
+<div class="content">
+<pre>grep -Rw ~/bin/ -e 'check_root'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To ignore case distinctions employ the -i option as shown.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>grep -Riw ~/bin/ -e 'check_root'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to know the exact line where the string of text exist, include the -n option.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>grep -Rinw ~/bin/ -e 'check_root'
+
+grep -Rinw ~/bin/ -e 'check_root' -e 'netstat'</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueunzip-a-tar-gz-file"><a class="anchor" href="#trueunzip-a-tar-gz-file"></a>1.5. Unzip a .tar.gz file.</h3>
+<div class="listingblock">
+<div class="content">
+<pre>tar -zcvf /tmp/itmax.tar.gz /var/itmax</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueusage-of-rsync-command"><a class="anchor" href="#trueusage-of-rsync-command"></a>1.6. Usage of rsync command.</h3>
+<div class="listingblock">
+<div class="content">
+<pre>rsync -achrvz --delete &lt;source&gt;/ &lt;destination&gt;
+rsync -achrvz --delete /tmp/src1/ /tmp/src2
+rsync -achrvz --delete &lt;username&gt;@&lt;IP&gt;:/var/src src
+rsync -achrvz --delete -e "ssh -p 22022 -i &lt;key-file&gt;" &lt;user&gt;@&lt;IP or host&gt;:/var/src/ src
+rsync -chrvz --delete -e "ssh -p 22022 -i &lt;key-file&gt;" &lt;user&gt;@&lt;IP or host&gt;:/var/src/ src</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-06 16:59:31 +0800
+Last updated 2020-10-07 09:31:05 +0800
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

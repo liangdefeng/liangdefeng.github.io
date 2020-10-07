@@ -1,5 +1,99 @@
 //
 // file: index.adoc
 //
-## Useful commands
+:sectnums:
+:toc: left
+:toclevels: 2
+:toc: 
+
+
+## Linux Commands and Usage Examples
+
+### Obtain the files between two git commits.
+----
+git checkout <OLD_COMMIT>
+git diff --name-only <OLD_COMMIT> <NEW_COMMIT> | xargs git checkout-index -f --prefix='C:/changes/'
+----
+
+### Import SSL certification to a JDK.
+Create a sh file as follows, replacing the KEYSTORE_FILE in the script.
+
+import_ssl_cert.sh
+----
+#!/usr/bin/env sh
+
+KEYSTORE_FILE=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.91-0.b14.el7_2.x86_64/jre/lib/security/cacerts
+KEYSTORE_PASS=changeit
+
+import_cert() {
+  local HOST=$1
+  local PORT=$2
+
+  # get the SSL certificate
+  openssl s_client -connect ${HOST}:{PORT} </dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > ${HOST}.cert
+
+  # delete the old alias and then import the new one
+  keytool -delete -keystore ${KEYSTORE_FILE} -storepass ${KEYSTORE_PASS} -alias ${HOST} &> /dev/null
+
+  # create a keystore and import certificate
+  keytool -import -noprompt -trustcacerts \
+      -alias ${HOST} -file ${HOST}.cert \
+      -keystore ${KEYSTORE_FILE} -storepass ${KEYSTORE_PASS}
+
+  rm ${HOST}.cert
+}
+----
+
+Execute:
+----
+./import_ssl_cert.sh www.google.com 443
+----
+
+### Usage of find command in Linux
+
+#### Find out all the files changed in the past 30 days.
+
+----
+find -type f /directory_path -mtime -30 -ls
+----
+
+##### Find out all the files changed in the past 24 hours.
+
+----
+find -type f /<directory> -newermt "-24 hours" -ls
+----
+
+### To find if a certain keyword is found in all the files within a folder.
+
+----
+grep -Rw ~/bin/ -e 'check_root'
+----
+
+To ignore case distinctions employ the -i option as shown.
+----
+grep -Riw ~/bin/ -e 'check_root'
+----
+
+If you want to know the exact line where the string of text exist, include the -n option.
+----
+grep -Rinw ~/bin/ -e 'check_root'
+
+grep -Rinw ~/bin/ -e 'check_root' -e 'netstat'
+----
+
+### Unzip a .tar.gz file.
+
+----
+tar -zcvf /tmp/itmax.tar.gz /var/itmax
+----
+
+### Usage of rsync command.
+
+----
+rsync -achrvz --delete <source>/ <destination>
+rsync -achrvz --delete /tmp/src1/ /tmp/src2
+rsync -achrvz --delete <username>@<IP>:/var/src src
+rsync -achrvz --delete -e "ssh -p 22022 -i <key-file>" <user>@<IP or host>:/var/src/ src
+rsync -chrvz --delete -e "ssh -p 22022 -i <key-file>" <user>@<IP or host>:/var/src/ src
+----
 
