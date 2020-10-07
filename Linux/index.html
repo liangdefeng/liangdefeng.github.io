@@ -5,7 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.8.dev">
-<title>Linux Commands and Usage Examples</title>
+<meta name="keywords" content="Linux, Shell Script,">
+<meta name="author" content="Peter Liang">
+<title>Linux Command and Usage Examples</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,30 +438,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<div id="toc" class="toc">
+<h1>Linux Command and Usage Examples</h1>
+<div class="details">
+<span id="author" class="author">Peter Liang</span><br>
+<span id="email" class="email"><a href="mailto:defeng.liang.cn@gmail.com">defeng.liang.cn@gmail.com</a></span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2020-10-07</span>
+</div>
+<div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#truelinux-commands-and-usage-examples">1. Linux Commands and Usage Examples</a>
 <ul class="sectlevel2">
-<li><a href="#trueobtain-the-files-between-two-git-commits">1.1. Obtain the files between two git commits.</a></li>
-<li><a href="#trueimport-ssl-certification-to-a-jdk">1.2. Import SSL certification to a JDK.</a></li>
-<li><a href="#trueusage-of-find-command-in-linux">1.3. Usage of find command in Linux</a></li>
-<li><a href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder">1.4. To find if a certain keyword is found in all the files within a folder.</a></li>
-<li><a href="#trueunzip-a-tar-gz-file">1.5. Unzip a .tar.gz file.</a></li>
-<li><a href="#trueusage-of-rsync-command">1.6. Usage of rsync command.</a></li>
-</ul>
-</li>
+<li><a href="#trueobtain-the-files-between-two-git-commits">1. Obtain the files between two git commits.</a></li>
+<li><a href="#trueimport-ssl-certification-to-a-jdk">2. Import SSL certification to a JDK.</a></li>
+<li><a href="#trueusage-of-find-command-in-linux">3. Usage of find command in Linux</a></li>
+<li><a href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder">4. To find if a certain keyword is found in all the files within a folder.</a></li>
+<li><a href="#trueunzip-a-tar-gz-file">5. Unzip a .tar.gz file.</a></li>
+<li><a href="#trueusage-of-rsync-command">6. Usage of rsync command.</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="truelinux-commands-and-usage-examples"><a class="anchor" href="#truelinux-commands-and-usage-examples"></a>1. Linux Commands and Usage Examples</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="trueobtain-the-files-between-two-git-commits"><a class="anchor" href="#trueobtain-the-files-between-two-git-commits"></a>1.1. Obtain the files between two git commits.</h3>
+<h3 id="trueobtain-the-files-between-two-git-commits"><a class="anchor" href="#trueobtain-the-files-between-two-git-commits"></a>1. Obtain the files between two git commits.</h3>
 <div class="listingblock">
 <div class="content">
 <pre>git checkout &lt;OLD_COMMIT&gt;
@@ -468,7 +470,7 @@ git diff --name-only &lt;OLD_COMMIT&gt; &lt;NEW_COMMIT&gt; | xargs git checkout-
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueimport-ssl-certification-to-a-jdk"><a class="anchor" href="#trueimport-ssl-certification-to-a-jdk"></a>1.2. Import SSL certification to a JDK.</h3>
+<h3 id="trueimport-ssl-certification-to-a-jdk"><a class="anchor" href="#trueimport-ssl-certification-to-a-jdk"></a>2. Import SSL certification to a JDK.</h3>
 <div class="paragraph">
 <p>Create a sh file as follows, replacing the KEYSTORE_FILE in the script.</p>
 </div>
@@ -511,9 +513,9 @@ import_cert() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueusage-of-find-command-in-linux"><a class="anchor" href="#trueusage-of-find-command-in-linux"></a>1.3. Usage of find command in Linux</h3>
+<h3 id="trueusage-of-find-command-in-linux"><a class="anchor" href="#trueusage-of-find-command-in-linux"></a>3. Usage of find command in Linux</h3>
 <div class="sect3">
-<h4 id="truefind-out-all-the-files-changed-in-the-past-30-days"><a class="anchor" href="#truefind-out-all-the-files-changed-in-the-past-30-days"></a>1.3.1. Find out all the files changed in the past 30 days.</h4>
+<h4 id="truefind-out-all-the-files-changed-in-the-past-30-days"><a class="anchor" href="#truefind-out-all-the-files-changed-in-the-past-30-days"></a>3.1. Find out all the files changed in the past 30 days.</h4>
 <div class="listingblock">
 <div class="content">
 <pre>find -type f /directory_path -mtime -30 -ls</pre>
@@ -530,7 +532,7 @@ import_cert() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"><a class="anchor" href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"></a>1.4. To find if a certain keyword is found in all the files within a folder.</h3>
+<h3 id="trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"><a class="anchor" href="#trueto-find-if-a-certain-keyword-is-found-in-all-the-files-within-a-folder"></a>4. To find if a certain keyword is found in all the files within a folder.</h3>
 <div class="listingblock">
 <div class="content">
 <pre>grep -Rw ~/bin/ -e 'check_root'</pre>
@@ -556,7 +558,7 @@ grep -Rinw ~/bin/ -e 'check_root' -e 'netstat'</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueunzip-a-tar-gz-file"><a class="anchor" href="#trueunzip-a-tar-gz-file"></a>1.5. Unzip a .tar.gz file.</h3>
+<h3 id="trueunzip-a-tar-gz-file"><a class="anchor" href="#trueunzip-a-tar-gz-file"></a>5. Unzip a .tar.gz file.</h3>
 <div class="listingblock">
 <div class="content">
 <pre>tar -zcvf /tmp/itmax.tar.gz /var/itmax</pre>
@@ -564,7 +566,7 @@ grep -Rinw ~/bin/ -e 'check_root' -e 'netstat'</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueusage-of-rsync-command"><a class="anchor" href="#trueusage-of-rsync-command"></a>1.6. Usage of rsync command.</h3>
+<h3 id="trueusage-of-rsync-command"><a class="anchor" href="#trueusage-of-rsync-command"></a>6. Usage of rsync command.</h3>
 <div class="listingblock">
 <div class="content">
 <pre>rsync -achrvz --delete &lt;source&gt;/ &lt;destination&gt;
@@ -576,11 +578,10 @@ rsync -chrvz --delete -e "ssh -p 22022 -i &lt;key-file&gt;" &lt;user&gt;@&lt;IP 
 </div>
 </div>
 </div>
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-07 09:31:05 +0800
+Version 1.0<br>
+Last updated 2020-10-07 10:14:33 +0800
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

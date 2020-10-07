@@ -1,13 +1,20 @@
-//
-// file: index.adoc
-//
-:sectnums:
+:title: Linux Command and Usage Examples
+:author: Peter Liang
+:email:  defeng.liang.cn@gmail.com
+:revnumber: 1.0
+:revdate: {docdate}
+:revyear: 2020
+:subject: DataCanvas
+:keywords: Linux, Shell Script,
+:media: screen
 :toc: left
 :toclevels: 2
-:toc: 
-
-
-## Linux Commands and Usage Examples
+:icons: font
+:lang: en
+:language: javadocript
+:experimental:
+:sectnums:
+= {title}
 
 ### Obtain the files between two git commits.
 ----
