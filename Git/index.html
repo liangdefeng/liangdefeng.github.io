@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
 <h1>Common Git Commands and Usage Examples</h1>
 <div class="details">
@@ -447,32 +447,442 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <span id="revnumber">version 1.0,</span>
 <span id="revdate">2020-10-07</span>
 </div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#truegit-config">1. git config</a></li>
+<li><a href="#truegit-init">2. git init</a></li>
+<li><a href="#truegit-clone">3. git clone</a></li>
+<li><a href="#truegit-add">4. git add</a></li>
+<li><a href="#truegit-commit">5. git commit</a></li>
+<li><a href="#truegit-diff">6. git diff</a></li>
+<li><a href="#truegit-status">7. git status</a></li>
+<li><a href="#truegit-log">8. git log</a></li>
+<li><a href="#truegit-show">9. git show</a></li>
+<li><a href="#truegit-branch">10. git branch</a></li>
+<li><a href="#truegit-checkout">11. git checkout</a></li>
+<li><a href="#truegit-merge">12. git merge</a></li>
+<li><a href="#truegit-remote">13. git remote</a></li>
+<li><a href="#truegit-push">14. git push</a></li>
+<li><a href="#truegit-pull">15. git pull</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="truegit-config"><a class="anchor" href="#truegit-config"></a>1. git config</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="Linux">Linux</a></p>
-</li>
-<li>
-<p><a href="Java">Java</a></p>
-</li>
-<li>
-<p><a href="Git">Git</a></p>
-</li>
-<li>
-<p><a href="Erlang&amp;Ejabberd">Erlang &amp; Ejabberd</a></p>
-</li>
-<li>
-<p><a href="CubaPlatform">Cuba Platform</a></p>
+<p>List all the configurations.</p>
 </li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git config -l</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List all the configurations set in global and system respectively</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git config --global -l
+git config --system -l</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the author name and email address respectively to be used with your commits</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git config -global user.name "[your name]"
+git config -global user.email "[your email]"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-init"><a class="anchor" href="#truegit-init"></a>2. git init</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Make a folder a git repository</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git init [folder path]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-clone"><a class="anchor" href="#truegit-clone"></a>3. git clone</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Clone a repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git clone [url]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-add"><a class="anchor" href="#truegit-add"></a>4. git add</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Add files to staging area.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git add [file]
+git add *</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-commit"><a class="anchor" href="#truegit-commit"></a>5. git commit</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>git commit -m "[message]"
+git commit -a</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-diff"><a class="anchor" href="#truegit-diff"></a>6. git diff</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command shows the differences between the files in the staging area and the latest version present.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git diff -staged</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command shows the differences between the two branches mentioned.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git diff [first branch] [second branch]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command shows the differences between commit</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git checkout [old commit]
+git diff --name-only [old commit] [new commit] | xargs git checkout-index -f --prefix='C:/changes/'</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-status"><a class="anchor" href="#truegit-status"></a>7. git status</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command lists all the files that have to be committed.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git status</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-log"><a class="anchor" href="#truegit-log"></a>8. git log</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command is used to list the version history for the current branch.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git log</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command lists version history for a file, including the renaming of files also.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git log –follow[file]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-show"><a class="anchor" href="#truegit-show"></a>9. git show</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command shows the metadata and content changes of the specified commit.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git show [commit]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-branch"><a class="anchor" href="#truegit-branch"></a>10. git branch</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command lists all the local branches in the current repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git branch</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command creates a new branch.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git branch [branch name]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command deletes the feature branch.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git branch -d [branch name]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-checkout"><a class="anchor" href="#truegit-checkout"></a>11. git checkout</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command is used to switch from one branch to another.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git checkout [branch name]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command creates a new branch and switches to it.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git checkout -b [branch name]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-merge"><a class="anchor" href="#truegit-merge"></a>12. git merge</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command merges the specified branch’s history into the current branch.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git merge [branch name]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-remote"><a class="anchor" href="#truegit-remote"></a>13. git remote</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>List all the possible commands.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git remote -help</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List all the connections to remote server.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git remote -v</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect your local repository to the remote server.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git remote add [variable name] [Remote Server Link]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-push"><a class="anchor" href="#truegit-push"></a>14. git push</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command sends the committed changes of master branch to your remote repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git push [variable name] master</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command sends the branch commits to your remote repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git push [variable name] [branch]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command pushes all branches to your remote repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git push –all [variable name]</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This command deletes a branch on your remote repository.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git push [variable name] :[branch name]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truegit-pull"><a class="anchor" href="#truegit-pull"></a>15. git pull</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>This command fetches and merges changes on the remote server to your working directory.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git pull [Repository Link]</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0<br>
-Last updated 2020-10-07 10:53:08 +0800
+Last updated 2020-10-07 10:53:02 +0800
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

@@ -1,20 +1,23 @@
-//
-// file: index.adoc
-//
-= liangdefeng.github.io
+:title: Common Git Commands and Usage Examples
+:author: Peter Liang
+:email:  defeng.liang.cn@gmail.com
+:revnumber: 1.0
+:revdate: {docdate}
+:revyear: 2020
+:subject: DataCanvas
+:keywords: Git, Commands, Usage
+:media: screen
+:toc: left
+:toclevels: 2
+:icons: font
+:lang: en
+:language: javadocript
+:experimental:
+= {title}
 
-Peter Liang, Hong Kong, <defeng.liang.cn@gmail.com>
-
-
-=== Site Link
 
 * link:Linux[Linux]
 * link:Java[Java]
+* link:Git[Git]
 * link:Erlang&Ejabberd[Erlang & Ejabberd]
 * link:CubaPlatform[Cuba Platform]
-
-
-==== Books
-* book 1
-* book 2
-* book 3

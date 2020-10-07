@@ -1,0 +1,177 @@
+:title: Common Git Commands and Usage Examples
+:author: Peter Liang
+:email:  defeng.liang.cn@gmail.com
+:revnumber: 1.0
+:revdate: {docdate}
+:revyear: 2020
+:subject: DataCanvas
+:keywords: Git, Commands, Usage
+:media: screen
+:toc: left
+:toclevels: 2
+:icons: font
+:lang: en
+:language: javadocript
+:experimental:
+:sectnums:
+= {title}
+
+## git config
+* List all the configurations.
+----
+git config -l
+----
+
+* List all the configurations set in global and system respectively
+----
+git config --global -l
+git config --system -l
+----
+
+* Set the author name and email address respectively to be used with your commits
+----
+git config -global user.name "[your name]"
+git config -global user.email "[your email]"
+----
+
+## git init
+
+* Make a folder a git repository
+----
+git init [folder path]
+----
+
+## git clone
+* Clone a repository.
+----
+git clone [url]
+----
+
+## git add
+* Add files to staging area.
+----
+git add [file]
+git add *
+----
+
+## git commit
+----
+git commit -m "[message]"
+git commit -a
+----
+
+## git diff
+* This command shows the differences between the files in the staging area and the latest version present.
+----
+git diff -staged
+----
+
+* This command shows the differences between the two branches mentioned.
+----
+git diff [first branch] [second branch]
+----
+
+* This command shows the differences between commit
+----
+git checkout [old commit]
+git diff --name-only [old commit] [new commit] | xargs git checkout-index -f --prefix='C:/changes/'
+----
+
+## git status
+* This command lists all the files that have to be committed.
+----
+git status
+----
+
+## git log
+* This command is used to list the version history for the current branch.
+----
+git log
+----
+
+* This command lists version history for a file, including the renaming of files also.
+----
+git log –follow[file]
+----
+
+## git show
+* This command shows the metadata and content changes of the specified commit.
+----
+git show [commit]
+----
+
+## git branch
+* This command lists all the local branches in the current repository.
+----
+git branch
+----
+
+* This command creates a new branch.
+----
+git branch [branch name]
+----
+
+* This command deletes the feature branch.
+----
+git branch -d [branch name]
+----
+
+## git checkout
+* This command is used to switch from one branch to another.
+----
+git checkout [branch name]
+----
+
+* This command creates a new branch and switches to it.
+----
+git checkout -b [branch name]
+----
+
+## git merge
+* This command merges the specified branch’s history into the current branch.
+----
+git merge [branch name]
+----
+
+## git remote
+* List all the possible commands.
+----
+git remote -help
+----
+
+* List all the connections to remote server.
+----
+git remote -v
+----
+
+* Connect your local repository to the remote server.
+----
+git remote add [variable name] [Remote Server Link]
+----
+
+## git push
+* This command sends the committed changes of master branch to your remote repository.
+----
+git push [variable name] master
+----
+
+* This command sends the branch commits to your remote repository.
+----
+git push [variable name] [branch]
+----
+
+* This command pushes all branches to your remote repository.
+----
+git push –all [variable name]
+----
+
+* This command deletes a branch on your remote repository.
+----
+git push [variable name] :[branch name]
+----
+
+## git pull
+* This command fetches and merges changes on the remote server to your working directory.
+----
+git pull [Repository Link]
+----

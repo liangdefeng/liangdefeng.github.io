@@ -16,11 +16,7 @@
 :sectnums:
 = {title}
 
-### Obtain the files between two git commits.
-----
-git checkout <OLD_COMMIT>
-git diff --name-only <OLD_COMMIT> <NEW_COMMIT> | xargs git checkout-index -f --prefix='C:/changes/'
-----
+
 
 ### Import SSL certification to a JDK.
 Create a sh file as follows, replacing the KEYSTORE_FILE in the script.
