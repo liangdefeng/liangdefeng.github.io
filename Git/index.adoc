@@ -16,6 +16,8 @@
 :sectnums:
 = {title}
 
+## link:..[back to parent]
+
 ## git config
 * List all the configurations.
 ----
