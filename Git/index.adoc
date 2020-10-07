@@ -61,74 +61,74 @@ git commit -a
 ----
 
 ## git diff
-* This command shows the differences between the files in the staging area and the latest version present.
+* Show the differences between the files in the staging area and the latest version present.
 ----
 git diff -staged
 ----
 
-* This command shows the differences between the two branches mentioned.
+* Show the differences between the two branches mentioned.
 ----
 git diff [first branch] [second branch]
 ----
 
-* This command shows the differences between commit
+* Show the differences between commit
 ----
 git checkout [old commit]
 git diff --name-only [old commit] [new commit] | xargs git checkout-index -f --prefix='C:/changes/'
 ----
 
 ## git status
-* This command lists all the files that have to be committed.
+* List all the files that have to be committed.
 ----
 git status
 ----
 
 ## git log
-* This command is used to list the version history for the current branch.
+* List the version history for the current branch.
 ----
 git log
 ----
 
-* This command lists version history for a file, including the renaming of files also.
+* List version history for a file, including the renaming of files also.
 ----
 git log –follow[file]
 ----
 
 ## git show
-* This command shows the metadata and content changes of the specified commit.
+* Show the metadata and content changes of the specified commit.
 ----
 git show [commit]
 ----
 
 ## git branch
-* This command lists all the local branches in the current repository.
+* List all the local branches in the current repository.
 ----
 git branch
 ----
 
-* This command creates a new branch.
+* Create a new branch.
 ----
 git branch [branch name]
 ----
 
-* This command deletes the feature branch.
+* Delete the branch.
 ----
 git branch -d [branch name]
 ----
 
 ## git checkout
-* This command is used to switch from one branch to another.
+* Switch from one branch to another.
 ----
 git checkout [branch name]
 ----
 
-* This command creates a new branch and switches to it.
+* Create a new branch and switch to it.
 ----
 git checkout -b [branch name]
 ----
 
 ## git merge
-* This command merges the specified branch’s history into the current branch.
+* Merges the specified branch’s history into the current branch.
 ----
 git merge [branch name]
 ----
@@ -150,28 +150,28 @@ git remote add [variable name] [Remote Server Link]
 ----
 
 ## git push
-* This command sends the committed changes of master branch to your remote repository.
+* Push the committed changes of master branch to remote repository.
 ----
 git push [variable name] master
 ----
 
-* This command sends the branch commits to your remote repository.
+* Push the branch commits to a remote repository.
 ----
 git push [variable name] [branch]
 ----
 
-* This command pushes all branches to your remote repository.
+* Push all branches to your remote repository.
 ----
 git push –all [variable name]
 ----
 
-* This command deletes a branch on your remote repository.
+* Delete a branch on your remote repository.
 ----
 git push [variable name] :[branch name]
 ----
 
 ## git pull
-* This command fetches and merges changes on the remote server to your working directory.
+* Fetch and merge changes on the remote server to your working directory.
 ----
 git pull [Repository Link]
 ----
